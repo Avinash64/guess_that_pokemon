@@ -26,8 +26,15 @@ submit.addEventListener("click", () => {
 
 skip.addEventListener("click", ()=> {
     getPokemon();
-    message.innerHTML = "";
+    message.innerHTML = `It was ${currentName}`;
 })
+guess.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      submit.click();
+    }
+  }); 
+
 
 const getPokemon = () => {
     var pid = Math.floor(Math.random() * 1008)
